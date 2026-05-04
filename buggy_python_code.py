@@ -8,7 +8,7 @@ app = flask.Flask(__name__)
 
 @app.route("/")
 def index():
-    version = flask.request.args.get("urllib_version")
+    version = flask.request.args.get("URLLIB_VERSION")
     url = flask.request.args.get("url")
     return fetch_website(version, url)
 
@@ -23,7 +23,7 @@ def print_nametag(format_string, person):
     print(format_string.format(person=person))
 
 
-def fetch_website(urllib_version, url):
+def fetch_website(URLLIB_VERSION, url):
     # Import the requested version (2 or 3) of urllib
     exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
@@ -40,9 +40,9 @@ def load_yaml(filename):
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
     
-def authenticate(password):
+def authenticate(PASSWORD):
     # Assert that the password is correct
-    assert password == "Iloveyou", "Invalid password!"
+    assert PASSWORD == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
 
 if __name__ == '__main__':
@@ -56,8 +56,8 @@ if __name__ == '__main__':
         new_person = Person("Vickie")  
         print_nametag(input("Please format your nametag: "), new_person)
     elif CHOICE == "2":
-        URLIB_VERSION = input("Choose version of urllib: ")
-        fetch_website(URLIB_VERSION, url="https://www.google.com")
+        URLLIB_VERSION = input("Choose version of urllib: ")
+        fetch_website(URLLIB_VERSION, url="https://www.google.com")
     elif CHOICE == "3":
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
