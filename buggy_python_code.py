@@ -51,17 +51,17 @@ if __name__ == '__main__':
     print("2. Code injection vulnerability:")
     print("3. Yaml deserialization vulnerability:")
     print("4. Use of assert statements vulnerability:")
-    choice  = input("Select vulnerability: ")
-    if choice == "1": 
+    CHOICE  = input("Select vulnerability: ")
+    if CHOICE == "1": 
         new_person = Person("Vickie")  
         print_nametag(input("Please format your nametag: "), new_person)
-    elif choice == "2":
-        urlib_version = input("Choose version of urllib: ")
-        fetch_website(urlib_version, url="https://www.google.com")
-    elif choice == "3":
+    elif CHOICE == "2":
+        URLIB_VERSION = input("Choose version of urllib: ")
+        fetch_website(URLIB_VERSION, url="https://www.google.com")
+    elif CHOICE == "3":
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
-    elif choice == "4":
-        password = input("Enter master password: ")
-        authenticate(password)
+    elif CHOICE == "4":
+        PASSWORD = input("Enter master password: ")
+            authenticate(PASSWORD)
 
